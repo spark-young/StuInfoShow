@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="/css/list.css">
+    
+</head>
+
+<body>
+    <table id="table" border="1" cellspacing="0" cellpadding="0">
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>班级</th>
+        </tr>
+    </table>
+
+    <!--<input type="button" value="发送get_ajax请求" id='btnAjax'>-->
+
+    <h1>Ajax 发送 get 请求且 异步加载</h1>
+    <div class="buttonGroup">
+        <input id="pre" class="button" type="button" value="PrePage">
+        <label id="pageNum" class=""></label>
+        <input id="next" class="button" type="button" value="NextPage">
+    </div>
+
+
+    <script type="text/javascript">
+        document.querySelector('#pre').onclick = function () {
+            var ajaxObj = new XMLHttpRequest();
+            page = page < 2 ? 1 : page - 1;
+            ajaxObj.open('get', 'StuInfo/page?param=' + page);
+            ajaxObj.send();
+            showInTable(ajaxObj);
+            document.getElementById('pageNum').innerText = page;
+        }
+    </script>
+    <script type="text/javascript">
+        document.querySelector('#next').onclick = function () {
+            var ajaxObj = new XMLHttpRequest();
+            page++;
+            ajaxObj.open('get', 'StuInfo/page?param=' + page);
+            ajaxObj.send();
+            showInTable(ajaxObj);
+            document.getElementById('pageNum').innerText = page;
+        }
+    </script>
+    <script type="text/javascript">
+        var page = 0;
+        // 绑定点击事件
+        //document.querySelector('#btnAjax').onclick = function () {//暂时不使用点击事件，而是加载页面的时候异步请求
+        // 使用ajax异步加载，可以避免因访问数据库时间过长而导致页面加载缓慢
+        // 发送ajax 请求 需要 五步
+
+        // （1）创建异步对象
+        var ajaxObj = new XMLHttpRequest();
+        // （2）设置请求的参数。包括：请求的方法、请求的url。
+        ajaxObj.open('get', 'StuInfo');
+        // （3）发送请求
+        ajaxObj.send();
+        //（4）注册事件。 onreadystatechange事件，状态改变时就会调用。
+        //如果要在数据完整请求回来的时候才调用，我们需要手动写一些判断的逻辑。
+        document.getElementById('pageNum').innerText = "ALL";
+        var table = document.getElementById("table");//根据ID获取需要操作的table
+        showInTable(ajaxObj);
+        // $.ajax(function(){
+
+        // });
+
+        function showInTable(ajaxObj) {
+            ajaxObj.onreadystatechange = function () {
+                // 为了保证 数据 完整返回，我们一般会判断 两个值
+                if (ajaxObj.readyState == 4 && ajaxObj.status == 200) {
+                    // 如果能够进到这个判断 说明 数据 完美的回来了,并且请求的页面是存在的
+                    // 5.在注册的事件中 获取 返回的 内容 并修改页面的显示
+                    console.log('数据返回成功');
+                    // 数据是保存在 异步对象的 属性中
+                    console.log(ajaxObj.responseText);
+                    if (ajaxObj.responseText == "[]") {//到了空页就不执行了
+                        page--;
+                        document.getElementById('pageNum').innerText = page;
+                        return;
+                    }
+                    var data = ajaxObj.responseText;//将ajax返回的responseText先存入一个变量，之后转化JSON才会成功
+                    // 修改页面的显示
+                    //document.querySelector('h1').innerHTML = data;
+
+                    data = JSON.parse(data);//将responseText格式转化为JSON格式，使用JSON的静态方法
+
+                    table.innerHTML = "<th>学号</th><th>姓名</th><th>性别</th><th>班级</th>";
+                    for (var i = 0; i < data.length; i++) {//遍历JSON里的list，放入table的每一行
+                        var row = table.insertRow(table.rows.length);
+                        var c1 = row.insertCell(0);
+                        c1.innerHTML = data[i].xh;
+                        var c2 = row.insertCell(1);
+                        c2.innerHTML = data[i].name;
+                        var c3 = row.insertCell(2);
+                        c3.innerHTML = data[i].sex;
+                        var c4 = row.insertCell(3);
+                        c4.innerHTML = data[i].className;
+                    }
+                }
+            }
+        }
+
+        //}
+    </script>
+
+</body>
+
+</html>

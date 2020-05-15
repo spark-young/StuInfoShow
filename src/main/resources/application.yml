@@ -1,0 +1,35 @@
+spring:
+  mvc:
+    view:
+      prefix: /
+      suffix: .html
+  freemarker:
+    suffix: .html
+    template-loader-path:
+    - classpath:/static/
+  datasource:
+#    password: 123456789
+#    username: Spark
+#    url: jdbc:mysql://47.115.112.103:3306/test
+#上面是直接连接数据库，下面是druid连接池连接数据库
+    druid:
+      url: jdbc:mysql://47.115.112.103:3306/test?useUnicode=true&characterEncoding=utf-8
+      username: Spark
+      password: 123456789
+      initial-size: 5
+      max-active: 20
+      min-idle: 5
+      max-wait: 6000
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+server:
+  tomcat:
+    uri-encoding: UTF-8
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  check-config-location: true
+pageSize: 5

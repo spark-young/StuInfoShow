@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>element-starter</title>
+    <!-- 引入样式 -->
+    <!-- <link rel="stylesheet" href="/css/eui.index.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.13.1/lib/theme-chalk/index.css">
+    <script src="/js/vue.min.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="/js/axios.min.js" type="text/javascript" charset="UTF-8"></script>
+    <!-- 引入组件库 -->
+    <script src="js/element-ui.index.js" type="text/javascript" charset="UTF-8"></script>
+</head>
+
+<body>
+    <div id="app">
+        <template>
+            <el-table  v-loading="loading" element-loading-text="拼命加载中" element-loading-spinner="el-icon-loading"
+                element-loading-background="rgba(0, 0, 0, 0.8)" :data="tableData" style="width: 100%">>
+                <el-table-column prop="xh" label="学号" width="180">
+                </el-table-column>
+                <el-table-column prop="name" label="姓名" width="180">
+                </el-table-column>
+                <el-table-column prop="sex" label="性别" width="180">
+                </el-table-column>
+                <el-table-column prop="className" label="班级">
+                </el-table-column>
+            </el-table>
+            <el-pagination page-size="5" background layout="prev, pager, next" :total="ttl"
+                @current-change="handleCurrentChange">
+            </el-pagination>
+        </template>
+        <style>
+            body {
+                margin: 0;
+            }
+        </style>
+</body>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                tableData: [],
+                loading: true
+            }
+        },
+        created: function () {
+            //为了在内部函数能使用外部函数的this对象，要给它赋值了一个名叫self的变量。
+            var self = this;
+            var tData = [];//作为缓冲变量，承接axios请求‘StuInfo’的结果，用于获取数据条数
+            axios({
+                methods: 'get',
+                url: 'StuInfo'
+            }).then(function (res) {
+                //   //把从json获取的数据赋值给数组
+                tData = res.data;
+                //从结果中获取数据条数信息并设置分页器
+                self.ttl = tData.length;
+                //初始加载第一页
+                axios({
+                    methods: 'get',
+                    url: 'StuInfo/page?param=1'
+                    //url: 'StuInfo/page?param=1'
+                }).then(function (res) {
+                    //把从json获取的数据赋值给数组
+                    self.tableData = res.data;
+                    //获取到数据之后就关闭loading遮罩
+                    self.loading = false;
+                });
+            });
+        },
+        methods: {
+            //用于处理Pagination当前页更改事件
+            handleCurrentChange(val) {
+                var self = this;
+                self.loading = true;
+                axios({
+                    methods: 'get',
+                    url: 'StuInfo/page?param=' + val
+                    //url: 'StuInfo/page?param=1'
+                }).then(function (res) {
+                    //把从json获取的数据赋值给数组
+                    self.tableData = res.data;
+                    //获取到数据之后就关闭loading遮罩
+                    self.loading = false;
+                });
+            }
+        }
+    });
+</script>
+
+</html>

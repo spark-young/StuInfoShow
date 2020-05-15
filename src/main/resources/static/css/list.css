@@ -1,0 +1,71 @@
+@charset "UTF-8";
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background: linear-gradient(90deg,#03a9c4,#f441af,#ffeb3b);
+    min-height: 100%;
+}
+h1{
+    background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+    color: white;
+    text-align: center;
+    background-size: 200%;
+    border-radius: 0px 0px 25px 25px;
+}
+table{
+    color: rgb(255, 230, 219);
+    border-radius: 15px;
+    border-color: transparent;
+    position: absolute;
+    left: 50%;
+    top: 50px;
+    transform: translate(-50%,0px);
+    font-size: 24px;
+    line-height: 40px;
+    text-shadow: rgba(0, 0, 0, 0.25) -2px 2px;
+    background-color: rgba(0, 0, 0,0.25);
+    width: 90%;
+    text-align: center;
+}
+.buttonGroup{
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    transform: translate(-50%,-20%);
+    text-align: center;
+}
+.button{
+    margin: 0em 3em 0em 3em;
+    text-decoration: none;
+    background: linear-gradient(90deg,#03a9c4,#f441af,#ffeb3b,#03a9f4);
+    background-size: 400%;
+    color: white;
+    font-size: 36px;
+    border-radius: 10px;
+    border-color: transparent;
+}
+.button:active{
+    background: rgba(0, 0, 0, 0.15);
+    color: gold;
+}
+.button:hover{
+    animation: sun 8s infinite;
+}
+@keyframes sun{
+    100%{
+        background-position: -400%,0%;
+    }
+}
+label{
+    color: white;
+    font-size: 36px;
+    font-weight: 400;
+    
+}
+label::before{
+    border-radius: 4em;
+    background: rgba(255, 255, 255, 0.5);
+}
