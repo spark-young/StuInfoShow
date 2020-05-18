@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    line-height: 21vh;
+    text-align: center;
+}
+.headertext{
+    line-height: 7vh;
+}
+h1{
+    font-weight: lighter;
+    color: #777;
+    font-style: PingFang SC;
+    font-size: 4vh;
+}
+.inputarea{
+    line-height: 7vh;
+    align-items: center;
+}
+.xh,.name,.sex,.className{
+    width: 20vw;
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+.buttonarea{
+    width: 100%;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    line-height: 7vh;
+}
+.search,.create,.update,.delete{
+    width: 15vw;
+    padding-left: 2vm;
+    padding-right: 2vm;
+    align-items: center;
+    background: #409eff;
+    color: white;
+}
+.wrapper{
+    text-align: center;
+    width: 100%;
+}
+.tableshow{
+    width: 100%;
+}
+.current-row > td {
+    background: rgba(12, 130, 199, 0.877) !important;
+    color: aliceblue;
+ }
+.pag{
+    position: fixed;
+    width: 100%;
+    bottom: 5vh;
+}
+.pagination{
+    text-align: center;
+}

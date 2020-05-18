@@ -7,6 +7,8 @@
     <!-- 引入样式 -->
     <!-- <link rel="stylesheet" href="/css/eui.index.css"> -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui@2.13.1/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="css/listUI.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1824701_6wem0cqn2zd.css">
     <script src="/js/vue.min.js" type="text/javascript" charset="UTF-8"></script>
     <script src="/js/axios.min.js" type="text/javascript" charset="UTF-8"></script>
     <!-- 引入组件库 -->
@@ -15,21 +17,52 @@
 
 <body>
     <div id="app">
-        <template>
-            <el-table  v-loading="loading" element-loading-text="拼命加载中" element-loading-spinner="el-icon-loading"
-                element-loading-background="rgba(0, 0, 0, 0.8)" :data="tableData" style="width: 100%">>
-                <el-table-column prop="xh" label="学号" width="180">
-                </el-table-column>
-                <el-table-column prop="name" label="姓名" width="180">
-                </el-table-column>
-                <el-table-column prop="sex" label="性别" width="180">
-                </el-table-column>
-                <el-table-column prop="className" label="班级">
-                </el-table-column>
-            </el-table>
-            <el-pagination page-size="5" background layout="prev, pager, next" :total="ttl"
+        <div class="header">
+            <div class="headertext">
+                <h1>学 生 信 息 显 示</h1>
+            </div>
+            <div class="inputarea">
+                <el-input class="xh" placeholder="请输入学号" v-model="inputxh" clearable>
+                </el-input>
+                <el-input class="name" placeholder="请输入姓名" v-model="inputname" clearable>
+                </el-input>
+                <template v-model="inputsex" class="sex">
+                    <el-radio class="iconfont icon-nan1" v-model="inputsex" label="男">boy</el-radio>
+                    <el-radio class="iconfont icon-nv1" v-model="inputsex" label="女">girl</el-radio>
+                </template>
+                <el-input class="className" placeholder="请输入班级" v-model="inputclassName" clearable>
+                </el-input>
+            </div>
+            <div class="buttonarea">
+                <el-button class="search" round :loading="loading_search" @click="selData()">查找</el-button>
+                <el-button class="create" round :loading="loading_create" @click="creData()">添加</el-button>
+                <el-button class="update" round :loading="loading_update" @click="upData">更新</el-button>
+                <el-button class="delete" round :loading="loading_delete" @click="delData">删除</el-button>
+            </div>
+        </div>
+        <div class="wrapper">
+            <template>
+                <el-table class="tableshow" v-loading="loading" highlight-current-row="true" stripe="true"
+                    element-loading-text="拼命加载中" element-loading-spinner="el-icon-loading"
+                    element-loading-background="rgba(0, 0, 0, 0.8)" :data="tableData" style="width: 100%"
+                    @current-change="handleCurretLineChange">
+                    <el-table-column prop="xh" label="学号">
+                    </el-table-column>
+                    <el-table-column prop="name" label="姓名">
+                    </el-table-column>
+                    <el-table-column prop="sex" label="性别">
+                    </el-table-column>
+                    <el-table-column prop="className" label="班级">
+                    </el-table-column>
+                </el-table>
+        </div>
+
+        <div class="pag">
+            <el-pagination class="pagination" page-size="10" background layout="prev, pager, next" :total="ttl"
                 @current-change="handleCurrentChange">
             </el-pagination>
+        </div>
+
         </template>
         <style>
             body {
@@ -44,7 +77,16 @@
         data: function () {
             return {
                 tableData: [],
-                loading: true
+                loading: true,
+                inputxh: '',
+                inputname: '',
+                inputsex: '男',
+                inputclassName: '',
+                loading_create: false,
+                loading_search: false,
+                loading_update: false,
+                loading_delete: false,
+                xhData: ''
             }
         },
         created: function () {
@@ -87,6 +129,88 @@
                     //获取到数据之后就关闭loading遮罩
                     self.loading = false;
                 });
+            },
+            handleCurretLineChange(val) {
+                console.log(val);
+                var self = this;
+                self.inputxh = val.xh;
+                self.inputname = val.name;
+                self.inputsex = val.sex;
+                self.inputclassName = val.className;
+            },
+            selData() {
+                var self = this;
+                console.log('pre:' + self.inputxh);
+                self.loading_search = true;
+                axios({
+                    methods: 'get',
+                    url: 'StuInfo/xh?param=' + self.inputxh
+                }).then(function (res) {
+                    self.tableData = res.data;
+                    self.loading_search = false;
+                }).catch(function (error) {
+                    console(error);
+                });
+                console.log('查找！！！！！！！！！！！！！');
+            },
+            creData() {
+                var self = this;
+                self.loading_create = true;
+                axios.post('StuInfo', {
+                    "xh": self.inputxh,
+                    "name": self.inputname,
+                    "sex": self.inputsex,
+                    "className": self.inputclassName
+                }).then(res => {
+                    if (res.data == true) {
+                        alert("添加成功!");
+                    }
+                    else {
+                        console.log("添加失败！！！！！！");
+                    }
+                }).catch(error => {
+                    console.log(error);
+                    if (error == "Error: Request failed with status code 500")
+                        alert("已有学号为" + self.inputxh + "的学生！");
+                });
+                self.loading_create = false;
+                console.log('创建！！！！！！！！！！！！！');
+            },
+            upData() {
+                var self = this;
+                self.loading_update = true;
+                axios.put('StuInfo', {
+                    "xh": self.inputxh,
+                    "name": self.inputname,
+                    "sex": self.inputsex,
+                    "className": self.inputclassName
+                }).then(res => {
+                    if (res.data == true) {
+                        alert("更新成功!");
+                    }
+                    else {
+                        alert("没有此学号的学生！");
+                    }
+                });
+                self.loading_update = false;
+                console.log('更新！！！！！！！！！！！！！');
+            },
+            delData() {
+                var self = this;
+                self.loading_delete = true;
+
+                axios.delete('StuInfo?xh='+self.inputxh).then(res => {
+                    if (res.data == true) {
+                        alert("删除成功!");
+                    }
+                    else {
+                        alert("没有此学号的学生！");
+                    }
+                }).catch(error => {
+                    console.log("出错！" + error.respponse);
+                });
+                self.loading_delete = false;
+                console.log('删除！！！！！！！！！！！！！');
             }
         }
     });

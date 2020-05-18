@@ -27,9 +27,10 @@ spring:
       enabled: true
 server:
   tomcat:
-    uri-encoding: UTF-8  port: 8181
+    uri-encoding: UTF-8
+  port: 8181
 mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   check-config-location: true
-pageSize: 5
+pageSize: 10
