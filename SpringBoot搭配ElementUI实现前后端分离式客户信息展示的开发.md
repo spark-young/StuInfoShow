@@ -291,67 +291,67 @@ public class MainController {
 
 Get——selectAll，uri:http://localhost:8080/StuInfo：
 
-![image-20200508133357319](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200508133357319.png)
+![image-20200508133357319](/md-img/image-20200508133357319.png)
 
-![image-20200508133453010](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200508133453010.png)
+![image-20200508133453010](/md-img/image-20200508133453010.png)
 
 Get——getByParam，uri:http://localhost:8080/StuInfo/xh?param=XXX：
 
-![image-20200508133729750](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200508133729750.png)
+![image-20200508133729750](/md-img/image-20200508133729750.png)
 
-![image-20200508133747553](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200508133747553.png)
+![image-20200508133747553](/md-img/image-20200508133747553.png)
 
 Get——getByParam，uri:http://localhost:8080/StuInfo/name?param=XXX：
 
-![image-20200508145642564](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200508145642564.png)
+![image-20200508145642564](/md-img/image-20200508145642564.png)
 
-![image-20200508145712527](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200508145712527.png)
+![image-20200508145712527](/md-img/image-20200508145712527.png)
 
 Get——getByParam，uri:http://localhost:8080/StuInfo/sex?param=XXX：
 
-![image-20200508150107034](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200508150107034.png)
+![image-20200508150107034](/md-img/image-20200508150107034.png)
 
-![image-20200508150118450](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200508150118450.png)
+![image-20200508150118450](/md-img/image-20200508150118450.png)
 
 Get——getByParam，uri:http://localhost:8080/StuInfo/className?param=XXX：
 
-![image-20200508150943024](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200508150943024.png)
+![image-20200508150943024](/md-img/image-20200508150943024.png)
 
-![image-20200508150952300](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200508150952300.png)
+![image-20200508150952300](/md-img/image-20200508150952300.png)
 
 Get——getByParam，uri:http://localhost:8080/StuInfo/page?param=XXX：
 
-![image-20200512161553242](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200512161553242.png)
+![image-20200512161553242](/md-img/image-20200512161553242.png)
 
-![image-20200512161728810](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200512161728810.png)
+![image-20200512161728810](/md-img/image-20200512161728810.png)
 
-![image-20200512161757996](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200512161757996.png)
+![image-20200512161757996](/md-img/image-20200512161757996.png)
 
-![image-20200512161808534](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200512161808534.png)
+![image-20200512161808534](/md-img/image-20200512161808534.png)
 
 Post——addStu，uri:http://localhost:8080/StuInfo：
 
-![image-20200508152611351](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200508152611351.png)
+![image-20200508152611351](/md-img/image-20200508152611351.png)
 
-![image-20200508152628959](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200508152628959.png)
+![image-20200508152628959](/md-img/image-20200508152628959.png)
 
-![image-20200508153958192](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200508153958192.png)
+![image-20200508153958192](/md-img/image-20200508153958192.png)
 
 Put——updateStu，uri:http://localhost:8080/StuInfo：
 
-![image-20200508154153896](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200508154153896.png)
+![image-20200508154153896](/md-img/image-20200508154153896.png)
 
-![image-20200508154203603](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200508154203603.png)
+![image-20200508154203603](/md-img/image-20200508154203603.png)
 
-![image-20200508154221598](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200508154221598.png)
+![image-20200508154221598](/md-img/image-20200508154221598.png)
 
 Delete——deleteStu，uri:http://localhost:8080/StuInfo：
 
-![image-20200508154725584](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200508154725584.png)
+![image-20200508154725584](/md-img/image-20200508154725584.png)
 
-![image-20200508154733666](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200508154733666.png)
+![image-20200508154733666](/md-img/image-20200508154733666.png)
 
-![image-20200508155030398](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200508155030398.png)
+![image-20200508155030398](/md-img/image-20200508155030398.png)
 
 经测试，所有Restful API功能正常
 
@@ -361,15 +361,15 @@ Delete——deleteStu，uri:http://localhost:8080/StuInfo：
 
 通过HbuilderX新建工程，选择ElementUI模板。引入vue.min.js，用于Vue前端项目开发；引入axios.min.js，用于在Vue项目中发送Ajax请求：
 
-![image-20200515001955662](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200515001955662.png)
+![image-20200515001955662](/md-img/image-20200515001955662.png)
 
 在线引用element-ui的样式：
 
-![image-20200515002122660](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200515002122660.png)
+![image-20200515002122660](/md-img/image-20200515002122660.png)
 
 在<a href="/element.eleme.cn">element官网</a>上找一个喜欢的表格样式:
 
-![image-20200515003813929](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200515003813929.png)
+![image-20200515003813929](/md-img/image-20200515003813929.png)
 
 复制代码，进行一定的修改：
 
@@ -389,7 +389,7 @@ Delete——deleteStu，uri:http://localhost:8080/StuInfo：
 
 选择一个喜欢的分页控件：
 
-![image-20200515003939958](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200515003939958.png)
+![image-20200515003939958](/md-img/image-20200515003939958.png)
 
 复制代码，并做一定的修改：
 
@@ -553,15 +553,15 @@ handleCurrentChange(val) {
 
 1（进入）：
 
-![image-20200515005411720](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200515005411720.png)
+![image-20200515005411720](/md-img/image-20200515005411720.png)
 
 2（加载）：
 
-![image-20200515005453095](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200515005453095.png)
+![image-20200515005453095](/md-img/image-20200515005453095.png)
 
 3（加载完毕）：
 
-![image-20200515005511782](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200515005511782.png)
+![image-20200515005511782](/md-img/image-20200515005511782.png)
 
 # 第六节——git发布到Github并在linux上部署：
 
@@ -593,19 +593,19 @@ handleCurrentChange(val) {
 
 使用**java -jar StuInfoShow.jar**执行即可运行，访问：http://spark-young.space:8181/listUI 即可
 
-![image-20200515223917198](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200515223917198.png)
+![image-20200515223917198](/md-img/image-20200515223917198.png)
 
 此时有个问题，我们希望部署之后是在Linux后端运行，那么我们运行jar时需要在后面加上“ & ”，即：**java -jar StuInfoShow.jar &**，此时既是在后端运行（其中3006为进程ID）
 
-![image-20200515224044223](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200515224044223.png)
+![image-20200515224044223](/md-img/image-20200515224044223.png)
 
 但还是存在问题，springboot项目运行时会产生一些控制台输出，即使现在是后端运行，在前端发送请求后后端处理时，仍然会在Linux命令行中输出信息
 
-![image-20200515224201185](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200515224201185.png)
+![image-20200515224201185](/md-img/image-20200515224201185.png)
 
 我们不希望这样的信息输出，使用**nohup java -jar StuInfoShow.jar &**， 即可让jar后端运行且忽略输入输出
 
-![image-20200515224309993](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200515224309993.png)
+![image-20200515224309993](/md-img/image-20200515224309993.png)
 
 截至现在项目发布GitHub、Linux部署成功
 
@@ -615,7 +615,7 @@ handleCurrentChange(val) {
 
 在项目根目录下执行命令：**nohup mvn spring-boot:run &**，在后端忽略输入输出的前提下，运行spring-boot项目
 
-![image-20200515224406845](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200515224406845.png)
+![image-20200515224406845](/md-img/image-20200515224406845.png)
 
 # 第七节——实现其他API功能在前端页面：
 
@@ -785,4 +785,4 @@ handleCurretLineChange(val) {
 
 最终页面：
 
-![image-20200529000610677](C:\Users\Spark\AppData\Roaming\Typora\typora-user-images\image-20200529000610677.png)
+![image-20200529000610677](/md-img/image-20200529000610677.png)
