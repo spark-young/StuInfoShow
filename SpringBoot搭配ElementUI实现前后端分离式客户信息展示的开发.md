@@ -279,8 +279,8 @@ public class MainController {
 		return stuService.updateStu(student);
 	}
 	@DeleteMapping
-	public boolean deleteStu(@RequestBody Student student) {
-		return stuService.deleteStu(student.getXh());
+	public boolean deleteStu(@RequestParam("xh") String xh){
+		return stuService.deleteStu(xh);
 	}
 }
 ```
@@ -345,13 +345,15 @@ Put——updateStu，uri:http://localhost:8080/StuInfo：
 
 ![image-20200508154221598](stu-img/image-20200508154221598.png)
 
-Delete——deleteStu，uri:http://localhost:8080/StuInfo：
+Delete——deleteStu，uri:http://localhost:8080/StuInfo?xh=8855633456：
 
-![image-20200508154725584](stu-img/image-20200508154725584.png)
+![image-20200529091609260](X:\WorkSpace\gitSpace\StuInfoShow\image-20200529091609260.png)
 
 ![image-20200508154733666](stu-img/image-20200508154733666.png)
 
-![image-20200508155030398](stu-img/image-20200508155030398.png)
+![image-20200529091509010](stu-img/image-20200529091509010.png)
+
+![image-20200529091632523](stu-img/image-20200529091632523.png)
 
 经测试，所有Restful API功能正常
 
