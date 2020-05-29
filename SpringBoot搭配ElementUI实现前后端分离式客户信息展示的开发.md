@@ -347,7 +347,7 @@ Put——updateStu，uri:http://localhost:8080/StuInfo：
 
 Delete——deleteStu，uri:http://localhost:8080/StuInfo?xh=8855633456：
 
-![image-20200529091609260](X:\WorkSpace\gitSpace\StuInfoShow\image-20200529091609260.png)
+![image-20200529091609260](stu-img/image-20200529091609260.png)
 
 ![image-20200508154733666](stu-img/image-20200508154733666.png)
 
